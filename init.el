@@ -1,8 +1,3 @@
-(package-initialize)
-
-;; Szerokość okna
-;;(setq default-frame-alist '((width . 100) (height . 36)
-;;			     (left . 260) (top . 20)))
 ;; Okno zmaksymalizowane na starcie
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; Płynne przewijanie
@@ -57,6 +52,9 @@
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
 (setq org-confirm-babel-evaluate nil)
 
+;; Org-roam
+
+
 ;; Beamer
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
@@ -66,12 +64,19 @@
 		 ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
 		 ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
 
+;; Obsługa YAML-a
+(straight-use-package 'yaml-mode)
+
 ;; Evil mode
+(straight-use-package 'evil)
 (evil-mode 1)
 
 ;; Autouzupełnianie
-(require 'company)
+(straight-use-package 'company)
 (global-company-mode)
+
+;; Gotham Theme
+(straight-use-package 'gotham-theme)
 
 ;; Lokalna konfiguracja
 (load "~/.emacs.d/init-local.el" t)
