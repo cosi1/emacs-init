@@ -52,8 +52,9 @@
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
 (setq org-confirm-babel-evaluate nil)
 
-;; Org-roam
-
+;; Deft
+(straight-use-package 'deft)
+(setq deft-directory "~/Org")
 
 ;; Beamer
 (with-eval-after-load 'ox-latex
