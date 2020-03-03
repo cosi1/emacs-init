@@ -45,6 +45,9 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . org-mode))
 (add-hook 'org-mode-hook #'visual-line-mode)
 
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c C-l") 'org-insert-link)
+
 ;; <F4> - lista notatek
 (global-set-key (kbd "<f4>") (lambda () (interactive) (find-file org-directory)))
 
@@ -55,6 +58,13 @@
 ;; Deft
 (straight-use-package 'deft)
 (setq deft-directory "~/Org")
+(setq deft-extensions '("org" "txt" "md" "Rmd"))
+(setq deft-use-filter-string-for-filename t)
+(setq deft-use-filename-as-title t)
+(setq deft-file-naming-rules
+      '((noslash . "_")
+	(nospace . "_")))
+(global-set-key (kbd "<f8>") 'deft)
 
 ;; Beamer
 (with-eval-after-load 'ox-latex
