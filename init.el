@@ -8,6 +8,8 @@
 (setq make-backup-files nil)
 ;; Wyłączenie dźwięku
 (setq ring-bell-function 'ignore)
+;; Nie pokazuj wiadomości w buforze *scratch*
+(setq initial-scratch-message "")
 
 ;; Straight
 (defvar bootstrap-version)
