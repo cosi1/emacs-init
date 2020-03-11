@@ -38,20 +38,11 @@
   (setq ess-default-style 'RStudio))
 
 ;; Org-mode - szybkie notatki
-(setq org-directory "~/Org/")
-(setq plik-notatnika (concat org-directory "Notatki.org"))
-(global-set-key (kbd "C-c C-n") (lambda () (interactive)
-				  (find-file plik-notatnika)))
-(setq org-default-notes-file plik-notatnika)
-(global-set-key (kbd "C-c C-c") 'org-capture)
 (add-to-list 'auto-mode-alist '("\\.md$" . org-mode))
 (add-hook 'org-mode-hook #'visual-line-mode)
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
-
-;; <F4> - lista notatek
-(global-set-key (kbd "<f4>") (lambda () (interactive) (find-file org-directory)))
 
 ;; Org-Babel
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
@@ -67,6 +58,7 @@
       '((noslash . "_")
 	(nospace . "_")))
 (global-set-key (kbd "<f8>") 'deft)
+(global-set-key (kbd "C-c C-n") 'deft)
 
 ;; Beamer
 (with-eval-after-load 'ox-latex
@@ -83,6 +75,7 @@
 ;; Evil mode
 (straight-use-package 'evil)
 (evil-mode 1)
+(evil-set-initial-state 'deft-mode 'insert)
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
