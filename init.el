@@ -41,6 +41,7 @@
 ;; Org-mode - szybkie notatki
 (add-to-list 'auto-mode-alist '("\\.md$" . org-mode))
 (add-hook 'org-mode-hook #'visual-line-mode)
+(setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
