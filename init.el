@@ -38,13 +38,18 @@
   (ess-toggle-underscore nil)
   (setq ess-default-style 'RStudio))
 
-;; Org-mode - szybkie notatki
+;; Org-mode
 (add-to-list 'auto-mode-alist '("\\.md$" . org-mode))
 (add-hook 'org-mode-hook #'visual-line-mode)
 (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
+
+(setq org-todo-keywords '((sequence "TODO" "!" "*" "DONE")))
+(setq org-todo-keyword-faces
+      '(("!" . (:foreground "yellow" :weight bold))
+	("*" . (:foreground "green" :weight bold))))
 
 ;; Org-Babel
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
