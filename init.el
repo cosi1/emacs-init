@@ -11,6 +11,11 @@
 ;; Nie pokazuj wiadomości w buforze *scratch*
 (setq initial-scratch-message "")
 
+;; Zegarek w pasku stanu
+(setq display-time-format "%H:%M")
+(setq display-time-default-load-average nil)
+(display-time-mode 1)
+
 ;; Straight
 (setq straight-process-buffer " *straight-process*")
 (defvar bootstrap-version)
