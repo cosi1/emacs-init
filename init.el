@@ -93,6 +93,10 @@
 (straight-use-package 'company)
 (global-company-mode)
 
+;; Golang
+(straight-use-package 'go-mode)
+(add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
+
 ;; Gotham Theme
 (straight-use-package 'gotham-theme)
 
