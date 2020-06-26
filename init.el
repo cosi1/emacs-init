@@ -39,6 +39,7 @@
 (global-set-key (kbd "<f5>") 'eshell)
 
 ;; Ustawienia ESS
+(straight-use-package 'ess)
 (with-eval-after-load 'ess-site
   (ess-toggle-underscore nil)
   (setq ess-default-style 'RStudio))
