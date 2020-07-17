@@ -56,6 +56,16 @@
 (setq org-todo-keyword-faces
       '(("!" . (:foreground "yellow" :weight bold))
 	("*" . (:foreground "green" :weight bold))))
+(setq org-directory "~/Org")
+
+;; Org-Agenda
+(setq org-default-todo-file (concat (file-name-as-directory org-directory) "Zadania.org"))
+(setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
+(setq org-agenda-files (list org-default-notes-file org-default-todo-file))
+(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-todo-file) "* TODO %?" :prepend t)
+			      ("n" "Notatka" entry (file org-default-notes-file) "" :prepend t)))
+(global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-x C-x") 'org-todo-list)
 
 ;; Org-Babel
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
@@ -63,7 +73,7 @@
 
 ;; Deft
 (straight-use-package 'deft)
-(setq deft-directory "~/Org")
+(setq deft-directory org-directory)
 (setq deft-extensions '("org" "txt" "md" "Rmd"))
 (setq deft-use-filter-string-for-filename t)
 (setq deft-use-filename-as-title t)
@@ -89,6 +99,7 @@
 (straight-use-package 'evil)
 (evil-mode 1)
 (evil-set-initial-state 'deft-mode 'insert)
+(add-hook 'org-capture-mode-hook 'evil-insert-state)
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
