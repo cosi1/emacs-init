@@ -63,7 +63,7 @@
 (setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
 (setq org-agenda-files (list org-default-notes-file org-default-todo-file))
 (setq org-capture-templates '(("c" "Zadanie" entry (file org-default-todo-file) "* TODO %?" :prepend t)
-			      ("n" "Notatka" entry (file org-default-notes-file) "" :prepend t)))
+			      ("n" "Notatka" entry (file org-default-notes-file) "* %?" :prepend t)))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
