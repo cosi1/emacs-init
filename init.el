@@ -1,5 +1,7 @@
 ;; Okno zmaksymalizowane na starcie
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; Wyłączenie ekranu powitalnego
+(setq inhibit-startup-screen t)
 ;; Płynne przewijanie
 (setq scroll-conservatively 10000)
 ;; Niestandardowe motywy
@@ -59,10 +61,9 @@
 (setq org-directory "~/Org")
 
 ;; Org-Agenda
-(setq org-default-todo-file (concat (file-name-as-directory org-directory) "Zadania.org"))
 (setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
-(setq org-agenda-files (list org-default-notes-file org-default-todo-file))
-(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-todo-file) "* TODO %?" :prepend t)
+(setq org-agenda-files (list org-default-notes-file))
+(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO %?" :prepend t)
 			      ("n" "Notatka" entry (file org-default-notes-file) "* %?" :prepend t)))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
@@ -109,8 +110,20 @@
 (straight-use-package 'go-mode)
 (add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
 
-;; Gotham Theme
-(straight-use-package 'gotham-theme)
+;; Afternoon Theme
+(straight-use-package 'afternoon-theme)
+(load-theme 'afternoon t)
+
+;; Zmiana kolorów ramki z podpowiedziami
+;; Za: https://www.emacswiki.org/emacs/CompanyMode
+(require 'color)
+(let ((bg (face-attribute 'default :background)))
+  (custom-set-faces
+   `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+   `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+   `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+   `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+   `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 ;; Lokalna konfiguracja
 (load "~/.emacs.d/init-local.el" t)
