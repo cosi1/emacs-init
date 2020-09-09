@@ -63,8 +63,8 @@
 ;; Org-Agenda
 (setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
 (setq org-agenda-files (list org-default-notes-file))
-(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO %?" :prepend t)
-			      ("n" "Notatka" entry (file org-default-notes-file) "* %?" :prepend t)))
+(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO [%<%d-%m>] %?" :prepend t)
+			      ("n" "Notatka" entry (file org-default-notes-file) "* [%<%d-%m>] %?" :prepend t)))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
@@ -124,6 +124,11 @@
    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
+;; w3m + klawiszologia Vim
+(straight-use-package 'w3m)
+(straight-use-package 'evil-collection)
+(evil-collection-init 'w3m)
 
 ;; Lokalna konfiguracja
 (load "~/.emacs.d/init-local.el" t)
