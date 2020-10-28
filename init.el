@@ -100,6 +100,7 @@
 (straight-use-package 'evil)
 (evil-mode 1)
 (evil-set-initial-state 'deft-mode 'insert)
+(evil-set-initial-state 'dired-mode 'emacs)
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
 
 ;; Autouzupełnianie
