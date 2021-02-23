@@ -18,6 +18,9 @@
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
 
+;; Numery kolumn
+(setq column-number-mode t)
+
 ;; Straight
 (setq straight-process-buffer " *straight-process*")
 (defvar bootstrap-version)
