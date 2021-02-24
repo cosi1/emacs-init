@@ -47,7 +47,7 @@
 (straight-use-package 'ess)
 (with-eval-after-load 'ess-site
   (ess-toggle-underscore nil)
-  (setq ess-default-style 'RStudio))
+  (ess-set-style 'RStudio))
 
 ;; Org-mode
 (add-to-list 'auto-mode-alist '("\\.md$" . org-mode))
@@ -114,6 +114,9 @@
 ;; Golang
 (straight-use-package 'go-mode)
 (add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
+
+;; Dockerfile
+(straight-use-package 'dockerfile-mode)
 
 ;; Afternoon Theme
 (straight-use-package 'afternoon-theme)
