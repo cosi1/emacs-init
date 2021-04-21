@@ -115,6 +115,9 @@
 (straight-use-package 'go-mode)
 (add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
 
+;; Groovy
+(straight-use-package 'groovy-mode)
+
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
 
