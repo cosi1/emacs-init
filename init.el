@@ -130,6 +130,7 @@
 
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
+(setq compilation-scroll-output t)
 
 ;; Afternoon Theme
 (straight-use-package 'afternoon-theme)
