@@ -40,8 +40,12 @@
 (straight-use-package 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; vterm
+(straight-use-package 'vterm)
+(setq vterm-kill-buffer-on-exit t)
+
 ;; <F5> - shell
-(global-set-key (kbd "<f5>") 'eshell)
+(global-set-key (kbd "<f5>") 'vterm)
 
 ;; Ustawienia ESS
 (straight-use-package 'ess)
@@ -106,6 +110,11 @@
 (evil-set-initial-state 'deft-mode 'insert)
 (evil-set-initial-state 'dired-mode 'emacs)
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
+
+;; Ranger
+(straight-use-package 'ranger)
+(global-set-key (kbd "<f6>") 'ranger)
+(ranger-override-dired-mode t)
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
