@@ -67,6 +67,8 @@
 	("*" . (:foreground "green" :weight bold))))
 (setq org-directory "~/Org")
 
+(setq org-hide-emphasis-markers t)
+
 ;; Org-Agenda
 (setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
 (setq org-agenda-files (list org-default-notes-file))
