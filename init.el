@@ -78,7 +78,7 @@
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
 ;; Org-Babel
-(org-babel-do-load-languages 'org-babel-load-languages '((R . t)))
+(org-babel-do-load-languages 'org-babel-load-languages '((R . t) (plantuml . t)))
 (setq org-confirm-babel-evaluate nil)
 
 ;; Deft
