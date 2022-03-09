@@ -130,6 +130,9 @@
 ;; Groovy
 (straight-use-package 'groovy-mode)
 
+;; Nextflow
+(straight-use-package '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
+
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
 (setq compilation-scroll-output t)
