@@ -80,6 +80,7 @@
 ;; Org-Babel
 (org-babel-do-load-languages 'org-babel-load-languages '((R . t) (plantuml . t)))
 (setq org-confirm-babel-evaluate nil)
+(setq org-edit-src-content-indentation 0)
 
 ;; Deft
 (straight-use-package 'deft)
@@ -113,6 +114,11 @@
 (evil-set-initial-state 'vterm-mode 'emacs)
 (evil-set-initial-state 'dired-mode 'emacs)
 (add-hook 'org-capture-mode-hook 'evil-insert-state)
+
+;; Undo/redo w evil-mode
+(straight-use-package 'undo-tree)
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
 
 ;; Ranger
 (straight-use-package 'ranger)
