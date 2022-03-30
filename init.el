@@ -118,7 +118,6 @@
 ;; Undo/redo w evil-mode
 (straight-use-package 'undo-tree)
 (global-undo-tree-mode)
-(evil-set-undo-system 'undo-tree)
 
 ;; Ranger
 (straight-use-package 'ranger)
