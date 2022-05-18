@@ -158,9 +158,12 @@
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 ;; w3m + klawiszologia Vim
-(straight-use-package 'w3m)
-(straight-use-package 'evil-collection)
-(evil-collection-init 'w3m)
+;;(straight-use-package 'w3m)
+;;(straight-use-package 'evil-collection)
+;;(evil-collection-init 'w3m)
+
+;; Elpher
+(straight-use-package 'elpher)
 
 ;; Lokalna konfiguracja
 (load "~/.emacs.d/init-local.el" t)
