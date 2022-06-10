@@ -58,6 +58,17 @@
 (add-hook 'org-mode-hook #'visual-line-mode)
 (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
 
+;; Ładne symbole w Org mode
+(defun prettify-org ()
+  (interactive)
+  (setq prettify-symbols-alist
+	'(("#+BEGIN_SRC" . "=")
+	  ("#+begin_src" . "=")
+	  ("#+END_SRC"   . "=")
+	  ("#+end_src"   . "=")))
+  (prettify-symbols-mode 1))
+(add-hook 'org-mode-hook 'prettify-org)
+
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
