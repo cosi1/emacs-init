@@ -138,6 +138,8 @@
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
+(add-hook 'company-mode-hook
+	  (lambda () (setq company-dabbrev-downcase nil)))
 (global-company-mode)
 
 ;; Golang
@@ -146,6 +148,8 @@
 
 ;; Groovy
 (straight-use-package 'groovy-mode)
+(add-hook 'groovy-mode-hook
+	  (lambda () (setq indent-tabs-mode nil)))
 
 ;; Nextflow
 (straight-use-package '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
