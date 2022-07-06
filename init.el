@@ -40,6 +40,11 @@
 (straight-use-package 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; magit-todos
+(straight-use-package 'magit-todos)
+(magit-todos-mode)
+(setq magit-todos-keyword-suffix "")
+
 ;; vterm
 (straight-use-package 'vterm)
 (setq vterm-kill-buffer-on-exit t)
