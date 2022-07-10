@@ -52,6 +52,12 @@
 ;; <F5> - shell
 (global-set-key (kbd "<f5>") 'vterm)
 
+;; Ido - nawigacja między buforami
+(require 'ido)
+(ido-mode 'buffers)
+(setq ido-ignore-buffers
+      '("^ " "*Completions*" "*Messages*"))
+
 ;; Ustawienia ESS
 (straight-use-package 'ess)
 (with-eval-after-load 'ess-site
