@@ -56,7 +56,8 @@
 (require 'ido)
 (ido-mode 'buffers)
 (setq ido-ignore-buffers
-      '("^ " "*Completions*" "*Messages*"))
+      '("^ " "*Completions*" "*Messages*" "^magit" "*Flymake log*" "LaTeX Output"
+	"*Calendar*" "*Straight" "*Backtrace*"))
 
 ;; Ustawienia ESS
 (straight-use-package 'ess)
@@ -125,6 +126,9 @@
 		 ("\\section\{%s\}" . "\\section*\{%s\}")
 		 ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
 		 ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}"))))
+
+;; Obsługa markdowna
+(straight-use-package 'markdown-mode)
 
 ;; Obsługa YAML-a
 (straight-use-package 'yaml-mode)
