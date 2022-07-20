@@ -129,6 +129,8 @@
 
 ;; Obsługa markdowna
 (straight-use-package 'markdown-mode)
+(custom-set-faces
+ '(markdown-code-face ((t (:inherit nil)))))
 
 ;; Obsługa YAML-a
 (straight-use-package 'yaml-mode)
