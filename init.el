@@ -14,6 +14,8 @@
 (setq initial-scratch-message "")
 ;; Dziel okno poziomo, jeżeli szerokość >=140
 (setq split-width-threshold 140)
+;; Nie pokazuj paska ikonek
+(custom-set-variables '(tool-bar-mode nil))
 
 ;; Zegarek w pasku stanu
 (setq display-time-format "%H:%M")
