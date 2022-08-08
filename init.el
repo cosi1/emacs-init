@@ -151,6 +151,10 @@
 ;; Undo/redo w evil-mode
 (straight-use-package 'undo-tree)
 (global-undo-tree-mode)
+;; Undo-tree w evil-mode
+(evil-set-undo-system 'undo-tree)
+;; Żeby undo-tree nie śmieciło swoimi plikami
+(setq undo-tree-auto-save-history nil)
 
 ;; Ranger
 (straight-use-package 'ranger)
