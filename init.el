@@ -96,8 +96,8 @@
 ;; Org-Agenda
 (setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
 (setq org-agenda-files (list org-default-notes-file))
-(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO [%<%d-%m>] %?" :prepend t)
-			      ("n" "Notatka" entry (file org-default-notes-file) "* [%<%d-%m>] %?" :prepend t)))
+(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO <%<%Y-%m-%d>> %?")
+			      ("n" "Notatka" entry (file org-default-notes-file) "* <%<%Y-%m-%d>> %?")))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
@@ -174,6 +174,9 @@
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
 (setq compilation-scroll-output t)
+
+;; Terraform
+(straight-use-package 'terraform-mode)
 
 ;; Afternoon Theme
 (straight-use-package 'afternoon-theme)
