@@ -12,6 +12,8 @@
 (setq ring-bell-function 'ignore)
 ;; Nie pokazuj wiadomości w buforze *scratch*
 (setq initial-scratch-message "")
+;; Dziel okno poziomo, jeżeli szerokość >=140
+(setq split-width-threshold 140)
 
 ;; Zegarek w pasku stanu
 (setq display-time-format "%H:%M")
