@@ -56,6 +56,10 @@
 ;; <F5> - shell
 (global-set-key (kbd "<f5>") 'vterm)
 
+;; Tramp - obsługa zdalnych plików
+(require 'tramp)
+(setq tramp-default-method "ssh")
+
 ;; Ido - nawigacja między buforami
 (require 'ido)
 (ido-mode 'buffers)
@@ -106,7 +110,8 @@
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
 ;; Org-Babel
-(org-babel-do-load-languages 'org-babel-load-languages '((R . t) (plantuml . t)))
+(org-babel-do-load-languages 'org-babel-load-languages
+       '((R . t) (plantuml . t) (shell . t)))
 (setq org-confirm-babel-evaluate nil)
 (setq org-edit-src-content-indentation 0)
 
