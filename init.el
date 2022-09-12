@@ -65,7 +65,7 @@
 (ido-mode 'buffers)
 (setq ido-ignore-buffers
       '("^ " "*Completions*" "*Messages*" "^magit" "*Flymake log*" "LaTeX Output"
-	"*Calendar*" "*Straight" "*Backtrace*"))
+	"*Calendar*" "*Straight" "*Backtrace*" "*tramp"))
 
 ;; Ustawienia ESS
 (straight-use-package 'ess)
