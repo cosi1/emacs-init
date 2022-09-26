@@ -67,6 +67,10 @@
       '("^ " "*Completions*" "*Messages*" "^magit" "*Flymake log*" "LaTeX Output"
 	"*Calendar*" "*Straight" "*Backtrace*" "*tramp"))
 
+;; Przełączanie między buforami poprzez Ctrl-(shift)-tab
+(global-set-key (kbd "C-<tab>") 'previous-buffer)
+(global-set-key (kbd "C-<iso-lefttab>") 'next-buffer)
+
 ;; Ustawienia ESS
 (straight-use-package 'ess)
 (with-eval-after-load 'ess-site
