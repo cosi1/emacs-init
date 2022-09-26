@@ -166,6 +166,11 @@
 (global-set-key (kbd "<f6>") 'ranger)
 (ranger-override-dired-mode t)
 
+;; Deadgrep (ripgrep)
+(straight-use-package 'deadgrep)
+(global-set-key (kbd "C-c C-g") #'deadgrep)
+(evil-set-initial-state 'deadgrep-mode 'emacs)
+
 ;; Autouzupełnianie
 (straight-use-package 'company)
 (add-hook 'company-mode-hook
