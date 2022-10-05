@@ -25,6 +25,9 @@
 ;; Numery kolumn
 (setq column-number-mode t)
 
+;; Wyłączony znacznik zakładek na lewym pasku
+(setq bookmark-set-fringe-mark nil)
+
 ;; Straight
 (setq straight-process-buffer " *straight-process*")
 (defvar bootstrap-version)
