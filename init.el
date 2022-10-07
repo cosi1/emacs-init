@@ -154,6 +154,7 @@
 ;; Evil mode
 (straight-use-package 'evil)
 (setq evil-want-keybinding nil)
+(setq evil-want-C-u-delete t)
 (evil-mode 1)
 (evil-set-initial-state 'deft-mode 'insert)
 (evil-set-initial-state 'vterm-mode 'emacs)
