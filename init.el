@@ -109,10 +109,16 @@
 (setq org-hide-emphasis-markers t)
 
 ;; Org-Agenda
-(setq org-default-notes-file (concat (file-name-as-directory org-directory) "Notatki.org"))
+(setq org-directory-as-dir (file-name-as-directory org-directory))
+(setq org-default-notes-file (concat org-directory-as-dir "Notatki.org"))
+(setq org-howto-file (concat org-directory-as-dir "HOWTO.org"))
+(setq org-labbook-file (concat org-directory-as-dir "Labbook.org"))
 (setq org-agenda-files (list org-default-notes-file))
-(setq org-capture-templates '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO <%<%Y-%m-%d>> %?")
-			      ("n" "Notatka" entry (file org-default-notes-file) "* <%<%Y-%m-%d>> %?")))
+(setq org-capture-templates
+      '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO %?" :prepend t)
+	("n" "Notatka" entry (file org-default-notes-file) "* <%<%Y-%m-%d>> %?")
+	("h" "HOWTO" entry (file org-howto-file) "* %?")
+	("l" "Labbook" entry (file org-labbook-file) "* <%<%Y-%m-%d>>\n%?\n")))
 (global-set-key (kbd "C-c c") 'org-capture)
 (global-set-key (kbd "C-x C-x") 'org-todo-list)
 
@@ -195,7 +201,8 @@
 	  (lambda () (setq indent-tabs-mode nil)))
 
 ;; Nextflow
-(straight-use-package '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
+(straight-use-package
+ '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
 
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
