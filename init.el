@@ -94,7 +94,7 @@
 	  ("#+END_SRC"   . "=")
 	  ("#+end_src"   . "=")))
   (prettify-symbols-mode 1)
-  (set-face-attribute 'org-meta-line nil :foreground "#444455"))
+  (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default))
 (add-hook 'org-mode-hook 'prettify-org)
 
 (global-set-key (kbd "C-c l") 'org-store-link)
