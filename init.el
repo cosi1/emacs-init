@@ -120,7 +120,8 @@
 	("h" "HOWTO" entry (file org-howto-file) "* %?")
 	("l" "Labbook" entry (file org-labbook-file) "* <%<%Y-%m-%d>>\n%?\n")))
 (global-set-key (kbd "C-c c") 'org-capture)
-(global-set-key (kbd "C-x C-x") 'org-todo-list)
+(global-set-key (kbd "C-x C-x")
+		(lambda () (interactive) (find-file org-default-notes-file)))
 
 ;; Org-Babel
 (org-babel-do-load-languages 'org-babel-load-languages
