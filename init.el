@@ -129,6 +129,14 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-edit-src-content-indentation 0)
 
+;; Tryb skupienia się na tekście
+(straight-use-package 'olivetti)
+(setq olivetti-style t)
+(setq olivetti-body-width 80)
+(straight-use-package 'focus)
+(global-set-key (kbd "<f9>")
+		(lambda () (interactive) (olivetti-mode) (focus-mode)))
+
 ;; Deft
 (straight-use-package 'deft)
 (setq deft-directory org-directory)
@@ -226,11 +234,6 @@
    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
-
-;; w3m + klawiszologia Vim
-;;(straight-use-package 'w3m)
-;;(straight-use-package 'evil-collection)
-;;(evil-collection-init 'w3m)
 
 ;; Elpher
 (straight-use-package 'elpher)
