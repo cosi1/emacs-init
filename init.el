@@ -21,7 +21,9 @@
 (setq display-time-format "%H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
-
+;; Czcionka w pasku stanu
+(custom-set-faces
+ '(mode-line ((t (:family "Noto Sans Mono")))))
 ;; Numery kolumn
 (setq column-number-mode t)
 
@@ -108,6 +110,18 @@
 
 (setq org-hide-emphasis-markers t)
 
+;; Org Mode 9 domyślnie włącza wcięcia pod nagłówkami
+;; Ta linia to wyłącza:
+(setq org-adapt-indentation nil)
+;; Łatwe wstawianie bloków w org-mode za pomocą `<s`
+;; W org-mode 9.2 ta opcja zniknęła
+(require 'org-tempo)
+;; Zwijanie nagłówków w Org Mode
+(setq org-startup-folded t)
+;; Łatka, żeby TAB w trybie komend <N>
+;; rozwijał nagłówek Org-mode
+(with-eval-after-load 'evil-maps (define-key evil-motion-state-map (kbd "TAB") nil))
+
 ;; Org-Agenda
 (setq org-directory-as-dir (file-name-as-directory org-directory))
 (setq org-default-notes-file (concat org-directory-as-dir "Notatki.org"))
@@ -162,6 +176,10 @@
 (straight-use-package 'markdown-mode)
 (custom-set-faces
  '(markdown-code-face ((t (:inherit nil)))))
+
+;; Quarto
+(straight-use-package 'quarto-mode)
+(require 'quarto-mode)
 
 ;; Obsługa YAML-a
 (straight-use-package 'yaml-mode)
