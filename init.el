@@ -30,6 +30,9 @@
 ;; Wyłączony znacznik zakładek na lewym pasku
 (setq bookmark-set-fringe-mark nil)
 
+;; Traktowanie `_` jako części słowa
+(modify-syntax-entry ?_ "w")
+
 ;; Straight
 (setq straight-process-buffer " *straight-process*")
 (defvar bootstrap-version)
