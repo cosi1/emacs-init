@@ -21,9 +21,6 @@
 (setq display-time-format "%H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
-;; Czcionka w pasku stanu
-(custom-set-faces
- '(mode-line ((t (:family "Noto Sans Mono")))))
 ;; Numery kolumn
 (setq column-number-mode t)
 
