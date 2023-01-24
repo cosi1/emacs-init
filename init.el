@@ -21,6 +21,8 @@
 (setq display-time-format "%H:%M")
 (setq display-time-default-load-average nil)
 (display-time-mode 1)
+;; Stan baterii w pasku stanu
+(display-battery-mode 1)
 ;; Numery kolumn
 (setq column-number-mode t)
 
