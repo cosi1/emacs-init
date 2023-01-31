@@ -230,6 +230,8 @@
 ;; Nextflow
 (straight-use-package
  '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
+(custom-set-faces
+ '(font-lock-type-face ((t (:foreground "goldenrod")))))
 
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
