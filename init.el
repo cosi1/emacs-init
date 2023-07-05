@@ -16,6 +16,8 @@
 (setq split-width-threshold 140)
 ;; Nie pokazuj paska ikonek
 (custom-set-variables '(tool-bar-mode nil))
+;; Nie pokazuj menu
+(custom-set-variables '(menu-bar-mode nil))
 
 ;; Zegarek w pasku stanu
 (setq display-time-format "%H:%M")
@@ -66,6 +68,9 @@
 ;; Tramp - obsługa zdalnych plików
 (require 'tramp)
 (setq tramp-default-method "ssh")
+
+;; Tramp i Docker/Podman
+(load "~/.emacs.d/tramp-podman.el" t)
 
 ;; Ido - nawigacja między buforami
 (require 'ido)
