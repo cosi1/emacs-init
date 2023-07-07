@@ -59,11 +59,11 @@
 (setq magit-todos-keyword-suffix "")
 
 ;; vterm
-(straight-use-package 'vterm)
+(straight-use-package 'multi-vterm)
 (setq vterm-kill-buffer-on-exit t)
 
 ;; <F5> - shell
-(global-set-key (kbd "<f5>") 'vterm)
+(global-set-key (kbd "<f5>") 'multi-vterm)
 
 ;; Tramp - obsługa zdalnych plików
 (require 'tramp)
