@@ -54,9 +54,9 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;; magit-todos
-(straight-use-package 'magit-todos)
-(magit-todos-mode)
-(setq magit-todos-keyword-suffix "")
+;;(straight-use-package 'magit-todos)
+;;(magit-todos-mode)
+;;(setq magit-todos-keyword-suffix "")
 
 ;; vterm
 (straight-use-package 'multi-vterm)
@@ -185,8 +185,8 @@
  '(markdown-code-face ((t (:inherit nil)))))
 
 ;; Quarto
-(straight-use-package 'quarto-mode)
-(require 'quarto-mode)
+;;(straight-use-package 'quarto-mode)
+;;(require 'quarto-mode)
 
 ;; Obsługa YAML-a
 (straight-use-package 'yaml-mode)
@@ -211,7 +211,7 @@
 
 ;; Ranger
 (straight-use-package 'ranger)
-(global-set-key (kbd "<f6>") 'ranger)
+;;(global-set-key (kbd "<f6>") 'ranger)
 (ranger-override-dired-mode t)
 
 ;; Deadgrep (ripgrep)
@@ -240,6 +240,10 @@
 (custom-set-faces
  '(font-lock-type-face ((t (:foreground "goldenrod")))))
 
+;; WDL-mode
+(straight-use-package
+ '(wdl-mode :type git :host github :repo "jmonlong/wdl-mode"))
+
 ;; Dockerfile
 (straight-use-package 'dockerfile-mode)
 (setq compilation-scroll-output t)
@@ -261,9 +265,6 @@
    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
-
-;; Elpher
-(straight-use-package 'elpher)
 
 ;; Lokalna konfiguracja
 (load "~/.emacs.d/init-local.el" t)
