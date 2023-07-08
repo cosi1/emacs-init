@@ -167,15 +167,22 @@
 
 ;; Deft
 (straight-use-package 'deft)
-(setq deft-directory org-directory)
+(setq deft-directory (concat org-directory "/Baza_wiedzy"))
 (setq deft-extensions '("org" "txt" "md" "Rmd"))
 (setq deft-use-filter-string-for-filename t)
 (setq deft-use-filename-as-title t)
+(setq deft-auto-save-interval 0)
 (setq deft-file-naming-rules
       '((noslash . "_")
 	(nospace . "_")))
 (global-set-key (kbd "<f8>") 'deft)
-(global-set-key (kbd "C-c C-n") 'deft)
+;;(global-set-key (kbd "C-c C-n") 'deft)
+(global-set-key (kbd "C-c C-n C-n")
+		(lambda () (interactive)
+		  (setq deft-directory (concat org-directory "/Baza_wiedzy")) (deft)))
+(global-set-key (kbd "C-c C-n C-o")
+		(lambda () (interactive)
+		  (setq deft-directory org-directory) (deft)))
 
 ;; Beamer
 (with-eval-after-load 'ox-latex
@@ -259,8 +266,11 @@
 (straight-use-package 'terraform-mode)
 
 ;; Afternoon Theme
-(straight-use-package 'afternoon-theme)
-(load-theme 'afternoon t)
+;;(straight-use-package 'afternoon-theme)
+;;(load-theme 'afternoon t)
+;; Jellybeans Theme
+(straight-use-package 'jbeans-theme)
+(load-theme 'jbeans t)
 
 ;; Zmiana kolorów ramki z podpowiedziami
 ;; Za: https://www.emacswiki.org/emacs/CompanyMode
