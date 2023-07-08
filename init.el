@@ -53,6 +53,13 @@
 (straight-use-package 'magit)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(with-eval-after-load 'magit
+  (define-key magit-status-mode-map (kbd "j") 'evil-next-line)
+  (define-key magit-status-mode-map (kbd "k") 'evil-previous-line)
+  (define-key magit-status-mode-map (kbd "x") 'magit-delete-thing)
+  (define-key magit-status-mode-map (kbd "C-f") 'evil-scroll-page-down)
+  (define-key magit-status-mode-map (kbd "C-b") 'evil-scroll-page-up))
+
 ;; magit-todos
 ;;(straight-use-package 'magit-todos)
 ;;(magit-todos-mode)
@@ -216,7 +223,7 @@
 
 ;; Deadgrep (ripgrep)
 (straight-use-package 'deadgrep)
-(global-set-key (kbd "C-c C-g") #'deadgrep)
+(global-set-key (kbd "C-c C-d") #'deadgrep)
 (evil-set-initial-state 'deadgrep-mode 'emacs)
 
 ;; Autouzupełnianie
