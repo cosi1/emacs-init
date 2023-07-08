@@ -73,8 +73,8 @@
 (global-set-key (kbd "<f5>") 'multi-vterm)
 
 ;; Tramp - obsługa zdalnych plików
-(require 'tramp)
-(setq tramp-default-method "ssh")
+(with-eval-after-load 'tramp
+  (setq tramp-default-method "ssh"))
 
 ;; Tramp i Docker/Podman
 (load "~/.emacs.d/tramp-podman.el" t)
@@ -129,7 +129,8 @@
 (setq org-adapt-indentation nil)
 ;; Łatwe wstawianie bloków w org-mode za pomocą `<s`
 ;; W org-mode 9.2 ta opcja zniknęła
-(require 'org-tempo)
+(with-eval-after-load 'org
+  (require 'org-tempo))
 ;; Zwijanie nagłówków w Org Mode
 (setq org-startup-folded t)
 ;; Łatka, żeby TAB w trybie komend <N>
@@ -152,10 +153,11 @@
 		(lambda () (interactive) (find-file org-default-notes-file)))
 
 ;; Org-Babel
-(org-babel-do-load-languages 'org-babel-load-languages
-       '((R . t) (plantuml . t) (shell . t)))
-(setq org-confirm-babel-evaluate nil)
-(setq org-edit-src-content-indentation 0)
+(with-eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages
+			       '((R . t) (plantuml . t) (shell . t)))
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-edit-src-content-indentation 0))
 
 ;; Tryb skupienia się na tekście
 (straight-use-package 'olivetti)
