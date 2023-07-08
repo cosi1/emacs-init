@@ -84,7 +84,7 @@
 (ido-mode 'buffers)
 (setq ido-ignore-buffers
       '("^ " "*Completions*" "*Messages*" "^magit" "*Flymake log*" "LaTeX Output"
-	"*Calendar*" "*Straight" "*Backtrace*" "*tramp"))
+	"*Calendar*" "*Straight" "*Backtrace*" "*tramp" "*kubel-process*"))
 
 ;; Przełączanie między buforami poprzez Ctrl-(shift)-tab
 (global-set-key (kbd "C-<tab>") 'previous-buffer)
@@ -266,6 +266,16 @@
 
 ;; Terraform
 (straight-use-package 'terraform-mode)
+
+;; Kubel
+(straight-use-package 'kubel)
+(straight-use-package 'kubel-evil)
+(global-set-key (kbd "C-c C-k") #'kubel)
+
+;; Kubel-evil (paczki nie da się załadować inaczej?)
+(with-eval-after-load 'kubel
+  (load (concat (straight--build-dir) "kubel-evil/kubel-evil.elc"))
+  (kubel-evil-mode))
 
 ;; Afternoon Theme
 ;;(straight-use-package 'afternoon-theme)
