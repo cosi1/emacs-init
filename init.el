@@ -1,5 +1,6 @@
 ;; Okno zmaksymalizowane na starcie
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+(add-to-list 'default-frame-alist '(vertical-scroll-bars . nil))
 ;; Wyłączenie ekranu powitalnego
 (setq inhibit-startup-screen t)
 ;; Płynne przewijanie
@@ -68,6 +69,9 @@
 ;; vterm
 (straight-use-package 'multi-vterm)
 (setq vterm-kill-buffer-on-exit t)
+;; Ctrl-C działa jak Ctrl-C w terminalu (nie jak w Emacsie)
+(with-eval-after-load 'multi-vterm
+  (define-key vterm-mode-map (kbd "C-c") 'vterm-send-C-c))
 
 ;; <F5> - shell
 (global-set-key (kbd "<f5>") 'multi-vterm)
@@ -110,7 +114,8 @@
 	  ("#+END_SRC"   . "=")
 	  ("#+end_src"   . "=")))
   (prettify-symbols-mode 1)
-  (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default))
+  (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default)
+  (set-face-attribute 'org-code nil :foreground "sky blue" :inherit 'default))
 (add-hook 'org-mode-hook 'prettify-org)
 
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -133,9 +138,12 @@
   (require 'org-tempo))
 ;; Zwijanie nagłówków w Org Mode
 (setq org-startup-folded t)
-;; Łatka, żeby TAB w trybie komend <N>
-;; rozwijał nagłówek Org-mode
-(with-eval-after-load 'evil-maps (define-key evil-motion-state-map (kbd "TAB") nil))
+(with-eval-after-load 'evil-maps
+  ;; Łatka, żeby TAB w trybie komend <N> rozwijał nagłówek Org-mode
+  (define-key evil-motion-state-map (kbd "TAB") nil)
+  ;; nnoremap j gj + nnoremap k gk
+  (define-key evil-normal-state-map (kbd "j") 'evil-next-visual-line)
+  (define-key evil-normal-state-map (kbd "k") 'evil-previous-visual-line))
 
 ;; Org-Agenda
 (setq org-directory-as-dir (file-name-as-directory org-directory))
