@@ -116,7 +116,8 @@
   (prettify-symbols-mode 1)
   (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default)
   (set-face-attribute 'org-code nil :foreground "sky blue" :inherit 'default))
-(add-hook 'org-mode-hook 'prettify-org)
+(with-eval-after-load 'org
+  (prettify-org))
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
@@ -245,13 +246,15 @@
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
-(add-hook 'company-mode-hook
-	  (lambda () (setq company-dabbrev-downcase nil)))
+(with-eval-after-load 'company-mode
+  (setq company-dabbrev-downcase nil))
 (global-company-mode)
 
 ;; Golang
 (straight-use-package 'go-mode)
 (add-hook 'go-mode-hook (lambda () (setq tab-width 4)))
+(with-eval-after-load 'go-mode
+  (define-key go-mode-map (kbd "C-c C-d") nil))
 
 ;; Groovy
 (straight-use-package 'groovy-mode)
