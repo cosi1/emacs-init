@@ -116,8 +116,7 @@
   (prettify-symbols-mode 1)
   (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default)
   (set-face-attribute 'org-code nil :foreground "sky blue" :inherit 'default))
-(with-eval-after-load 'org
-  (prettify-org))
+(add-hook 'org-mode-hook 'prettify-org)
 
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
@@ -246,8 +245,8 @@
 
 ;; Autouzupełnianie
 (straight-use-package 'company)
-(with-eval-after-load 'company-mode
-  (setq company-dabbrev-downcase nil))
+(add-hook 'company-mode-hook
+	  (lambda () (setq company-dabbrev-downcase nil)))
 (global-company-mode)
 
 ;; Golang
