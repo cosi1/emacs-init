@@ -35,6 +35,10 @@
 ;; Traktowanie `_` jako części słowa
 (modify-syntax-entry ?_ "w")
 
+;; Domyślnie nie zamieniaj 8 spacji na tab
+;; (tryby mogą to wyłączyć)
+(setq-default indent-tabs-mode nil)
+
 ;; Straight
 (setq straight-process-buffer " *straight-process*")
 (defvar bootstrap-version)
@@ -243,6 +247,10 @@
 (global-set-key (kbd "C-c C-d") #'deadgrep)
 (evil-set-initial-state 'deadgrep-mode 'emacs)
 
+(with-eval-after-load 'deadgrep
+  (define-key deadgrep-mode-map (kbd "j") 'deadgrep-forward)
+  (define-key deadgrep-mode-map (kbd "k") 'deadgrep-backward))
+
 ;; Autouzupełnianie
 (straight-use-package 'company)
 (add-hook 'company-mode-hook
@@ -257,8 +265,6 @@
 
 ;; Groovy
 (straight-use-package 'groovy-mode)
-(add-hook 'groovy-mode-hook
-	  (lambda () (setq indent-tabs-mode nil)))
 
 ;; Nextflow
 (straight-use-package
