@@ -189,14 +189,20 @@
 (setq deft-file-naming-rules
       '((noslash . "_")
 	(nospace . "_")))
-(global-set-key (kbd "<f8>") 'deft)
-;;(global-set-key (kbd "C-c C-n") 'deft)
-(global-set-key (kbd "C-c C-n C-n")
-		(lambda () (interactive)
-		  (setq deft-directory (concat org-directory "/Baza_wiedzy")) (deft)))
-(global-set-key (kbd "C-c C-n C-o")
-		(lambda () (interactive)
-		  (setq deft-directory org-directory) (deft)))
+
+(defun deft0 (dir) (interactive)
+       (setq deft-directory (concat org-directory dir))
+       (switch-to-buffer "*Deft*")
+       (kill-this-buffer)
+       (deft))
+
+;;(global-set-key (kbd "<f8>") 'deft)
+(global-set-key (kbd "<f8>")
+		(lambda () (interactive) (deft0 "/Baza_wiedzy")))
+(global-set-key (kbd "S-<f8>")
+		(lambda () (interactive) (deft0 "/Bezpieczeństwo")))
+(global-set-key (kbd "C-<f8>")
+		(lambda () (interactive) (deft0 "")))
 
 ;; Beamer
 (with-eval-after-load 'ox-latex
