@@ -273,6 +273,11 @@
 ;; Groovy
 (straight-use-package 'groovy-mode)
 
+;; Pascal
+(setq pascal-indent-level 4)
+(setq pascal-auto-newline nil)
+(setq pascal-auto-endcomments nil)
+
 ;; Nextflow
 (straight-use-package
  '(nextflow-mode :type git :host github :repo "Emiller88/nextflow-mode"))
