@@ -118,8 +118,8 @@
 	  ("#+END_SRC"   . "=")
 	  ("#+end_src"   . "=")))
   (prettify-symbols-mode 1)
-  (set-face-attribute 'org-meta-line nil :foreground "#444455" :inherit 'default)
-  (set-face-attribute 'org-drawer nil :foreground "#444455" :inherit 'default)
+  (set-face-attribute 'org-meta-line nil :foreground "#333344" :inherit 'default)
+  (set-face-attribute 'org-drawer nil :foreground "#333344" :inherit 'default)
   (set-face-attribute 'org-code nil :foreground "sky blue" :inherit 'default))
 (add-hook 'org-mode-hook 'prettify-org)
 
