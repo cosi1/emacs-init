@@ -118,6 +118,11 @@
 	  ("#+END_SRC"   . "=")
 	  ("#+end_src"   . "=")))
   (prettify-symbols-mode 1)
+  (set-face-attribute 'org-block nil :background "#33221a" :inherit 'default)
+  (set-face-attribute 'org-block-begin-line nil
+                      :background "#33221a" :foreground "#333344" :inherit 'default)
+  (set-face-attribute 'org-block-end-line nil
+                      :background "#33221a" :foreground "#333344" :inherit 'default)
   (set-face-attribute 'org-meta-line nil :foreground "#333344" :inherit 'default)
   (set-face-attribute 'org-drawer nil :foreground "#333344" :inherit 'default)
   (set-face-attribute 'org-code nil :foreground "sky blue" :inherit 'default))
@@ -126,9 +131,10 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c C-l") 'org-insert-link)
 
-(setq org-todo-keywords '((sequence "TODO" "!" "*" "DONE")))
+(setq org-todo-keywords '((sequence "TODO" "!" "?" "*" "DONE")))
 (setq org-todo-keyword-faces
       '(("!" . (:foreground "yellow" :weight bold))
+	("?" . (:foreground "white" :weight bold))
 	("*" . (:foreground "green" :weight bold))))
 (setq org-directory "~/Org")
 
@@ -155,7 +161,7 @@
 (setq org-default-notes-file (concat org-directory-as-dir "Notatki.org"))
 (setq org-howto-file (concat org-directory-as-dir "HOWTO.org"))
 (setq org-labbook-file (concat org-directory-as-dir "Labbook.org"))
-(setq org-agenda-files (list org-default-notes-file))
+(setq org-agenda-files (list org-default-notes-file org-labbook-file))
 (setq org-capture-templates
       '(("c" "Zadanie" entry (file org-default-notes-file) "* TODO %?" :prepend t)
 	("n" "Notatka" entry (file org-default-notes-file) "* <%<%Y-%m-%d>> %?")
